@@ -1,44 +1,35 @@
-# dplfr
+# CodeLearn — Frontend
 
-This template should help get you started developing with Vue 3 in Vite.
+Клиентская часть кроссплатформенной образовательной системы для обучения программированию. Разработано с использованием **Vue 3 (Composition API)**, **Vite**, **Tailwind CSS** и **Pinia**.
 
-## Recommended IDE Setup
+## 🚀 Требования
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Для запуска проекта вам понадобятся:
+* **Node.js** (рекомендуется версия 18.x или выше)
+* **npm** (поставляется вместе с Node.js) или **yarn**
 
-## Recommended Browser Setup
+## 🛠 Установка
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
+### Установите все зависимости, прописанные в package.json:
 npm install
-```
 
-### Compile and Hot-Reload for Development
+### ⚙ Конфигурация
+Перед запуском фронтенда убедитесь, что ваш бэкенд-сервер активен (по умолчанию настроен на порт 8080).
 
-```sh
-npm run dev
-```
+Проект использует кастомный инстанс Axios с интерцептором, который автоматически извлекает JWT-токен из localStorage и прикрепляет его к заголовку Authorization: Bearer <token> для всех защищенных запросов (создание курсов, управление задачами, подписки и избранное).
 
-### Compile and Minify for Production
+### 💻 Запуск приложения
+Режим разработки (Development)
+Запуск локального сервера Vite с поддержкой Hot Module Replacement (HMR): npm run dev -- --host 127.0.0.1
+После успешного запуска консоль покажет локальный адрес. Обычно это: http://127.0.0.1:5173/
 
-```sh
-npm run build
-```
+## 📁 Краткая структура исходного кода (src/)
+📁 api/ — Настройка axios.js (базовый URL, перехватчики запросов для авторизации).
 
-### Lint with [ESLint](https://eslint.org/)
+📁 components/ — Глобальные и переиспользуемые UI-компоненты (Sidebar.vue, CourseCard.vue и др.).
 
-```sh
-npm run lint
-```
+📁 pages/ — Страницы приложения (AdminCoursesPage.vue с дашбордом статистики, FavoritesPage.vue, SubscriptionsPage.vue, RegisterPage.vue и др.).
+
+📁 stores/ — Сторы Pinia для централизованного управления состоянием (authStore.js, courseStore.js).
+
+📁 router/ — Конфигурация vue-router для навигации между страницами платформы.
